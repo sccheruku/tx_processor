@@ -1,0 +1,51 @@
+type, client, tx, amount
+deposit, 4000, 4001, 1.0000
+deposit, 4000, 4002, 2.0000
+deposit, 5000, 5001, 1.12345
+deposit, 5000, 5002, 1.12345
+withdrawal, 5000, 5003, 1.12345
+deposit, 6000, 6001, 1.12345
+deposit, 6000, 6002, 1.67890
+withdrawal, 6000, 6003, 1
+
+deposit, 7000, 7001, 150.0
+withdrawal, 7000, 7003, 175.0
+deposit, 7000, 7004, 75.0
+dispute, 7000, 7004
+chargeback, 7000, 7004
+
+deposit, 8000, 8001, 150.0
+withdrawal, 8000, 8002, 175.0
+dispute, 8000, 8001
+
+deposit, 9000, 9001, 150.0
+deposit, 9000, 9002, 150.0
+deposit, 9000, 9003, 150.0
+deposit, 9000, 9004, 150.0
+withdrawal, 9000, 9005, 175.0
+dispute, 9000, 9001
+resolve, 9000, 9001
+dispute, 9000, 9002
+
+deposit, 10000, 10001, 150.0
+withdrawal, 10000, 10002, 175.0
+dispute, 10000, 10001
+resolve, 10000, 10001
+
+deposit, 11000, 11001, 150.0
+deposit, 11000, 11002, 150.0
+deposit, 11000, 11003, 150.0
+deposit, 11000, 11004, 150.0
+withdrawal, 11000, 11005, 175.0
+dispute, 11000, 11001
+resolve, 11000, 11001
+dispute, 11000, 11001
+
+
+deposit, 12000, 12001, 150.0
+deposit, 12000, 12002, 150.0
+deposit, 12000, 12003, 150.0
+deposit, 12000, 12004, 150.0
+withdrawal, 12000, 12005, 175.0
+dispute, 12000, 12001
+chargeback, 12000, 12001
