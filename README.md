@@ -20,7 +20,7 @@ cargo run -- transactions.csv > accounts.csv
 2. I opted to use f64 because it was easier (for the test project), and also because these transactions are CreditCard transactions, overflow would be unlikely because it would require more funds than [all the money in the world](https://www.gobankingrates.com/money/economy/how-much-money-is-in-the-world/). :grin:
 Also, f64 was easier to parse. 
 
-3. I've assumed that disputed transactions only apply to withdrawal type transactions. 
+3. I've assumed that disputed transactions only apply to deposits type transactions. 
 
 4. After an account is locked, no transactions are accepted for that account.
 
@@ -166,8 +166,10 @@ client, available, held, total, locked
 
 ### Live Coding:
 
-Part 1 - 2hr
+Summary - 
+[![Summary](https://img.youtube.com/vi/Nbcr16ksZIQ/0.jpg)](https://www.youtube.com/watch?v=Nbcr16ksZIQ)
 
+Part 1 - 2hr
 [![Part 1](https://img.youtube.com/vi/usyCPOEJPBw/0.jpg)](https://www.youtube.com/watch?v=usyCPOEJPBw)
 
 Part 2 - 1hr
@@ -177,7 +179,3 @@ Part 2 - 1hr
 Part 3 - 20m
 
 [![Part 3](https://img.youtube.com/vi/QbOrlniaZKM/0.jpg)](https://www.youtube.com/watch?v=QbOrlniaZKM)
-
-Summary - 
-
-[![Summary](https://img.youtube.com/vi/URL/0.jpg)](https://www.youtube.com/watch?v=URL)
