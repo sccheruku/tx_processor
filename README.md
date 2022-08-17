@@ -167,9 +167,11 @@ client, available, held, total, locked
 ### Live Coding:
 
 Summary - 
+
 [![Summary](https://img.youtube.com/vi/Nbcr16ksZIQ/0.jpg)](https://www.youtube.com/watch?v=Nbcr16ksZIQ)
 
 Part 1 - 2hr
+
 [![Part 1](https://img.youtube.com/vi/usyCPOEJPBw/0.jpg)](https://www.youtube.com/watch?v=usyCPOEJPBw)
 
 Part 2 - 1hr
