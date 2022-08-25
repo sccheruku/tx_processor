@@ -47,7 +47,7 @@ deposit, 12000, 12002, 150.0
 deposit, 12000, 12003, 150.0
 deposit, 12000, 12004, 150.0
 withdrawal, 12000, 12005, 175.0
-dispute, 12000, 12001
+dispute, 12000, 12001, 50
 chargeback, 12000, 12001
 
 deposit, 13000, 13001, 150.0
@@ -64,3 +64,5 @@ unknown
 deposit, fjefahaefhm3490, 232, 31434
 deposit, 3, fjefahaefhm3490, 31434
 deposit, 3, 44, fjefahaefhm3490
+
+chargeback, 19000, 19001,

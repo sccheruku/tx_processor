@@ -156,7 +156,7 @@ deposit, 12000, 12002, 150.0
 deposit, 12000, 12003, 150.0
 deposit, 12000, 12004, 150.0
 withdrawal, 12000, 12005, 175.0
-dispute, 12000, 12001
+dispute, 12000, 12001, 50 ## Ignores the 50
 chargeback, 12000, 12001
 ```
 ```
@@ -180,6 +180,16 @@ chargeback, 13000, 12001
 ```
 client, available, held, total, locked
 13000, 275.0000, 150.0000, 425.0000, false
+```
+
+#### Create client if not exists (client_id: `19000`)
+```
+type, client, tx, amount
+chargeback, 19000, 19001,
+```
+```
+client, available, held, total, locked
+19000, 0.0000, 0.0000, 0.0000, false
 ```
 
 #### Invalid rows 
