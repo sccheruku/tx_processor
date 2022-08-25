@@ -1,3 +1,4 @@
+use std::{fmt::Error, num::ParseIntError};
 use csv::StringRecord;
 
 #[derive(Debug, Clone, Copy)]
@@ -9,15 +10,15 @@ pub enum TransactionType {
     Chargeback,
 }
 
-impl From<&str> for TransactionType {
-    fn from(item: &str) -> Self {
+impl TransactionType {
+    fn parse(item: &str) -> Result<TransactionType, String> {
         return match item {
-            "deposit" => TransactionType::Deposit,
-            "withdrawal" => TransactionType::Withdrawal,
-            "dispute" => TransactionType::Dispute,
-            "resolve" => TransactionType::Resolve,
-            "chargeback" => TransactionType::Chargeback,
-            _ => panic!("Not a valid transaction type"),
+            "deposit" => Ok(TransactionType::Deposit),
+            "withdrawal" => Ok(TransactionType::Withdrawal),
+            "dispute" => Ok(TransactionType::Dispute),
+            "resolve" => Ok(TransactionType::Resolve),
+            "chargeback" => Ok(TransactionType::Chargeback),
+            _ => Err("Not a valid transaction type".into()),
         };
     }
 }
@@ -38,20 +39,20 @@ fn parse_amount(amount_str: &str) -> Option<f64> {
     };
 }
 
-impl From<StringRecord> for Transaction {
-    fn from(record: StringRecord) -> Self {
-        return Transaction {
-            transaction_type: TransactionType::from(&record[0]),
-            client: record[1].trim().parse::<u16>().unwrap(),
-            tx: record[2].trim().parse::<u32>().unwrap(),
-            amount: match record.len() {
-                4 => parse_amount(record[3].trim()),
-                _ => None,
-            },
-            disputed: false,
-        };
-    }
-}
+// impl From<StringRecord> for Transaction {
+//     fn from(record: StringRecord) -> Self {
+//         return Transaction {
+//             transaction_type: TransactionType::from(&record[0]),
+//             client: record[1].trim().parse::<u16>().unwrap(),
+//             tx: record[2].trim().parse::<u32>().unwrap(),
+//             amount: match record.len() {
+//                 4 => parse_amount(record[3].trim()),
+//                 _ => None,
+//             },
+//             disputed: false,
+//         };
+//     }
+// }
 
 impl Transaction {
     pub fn set_disputed(&mut self) {
@@ -69,6 +70,40 @@ impl Transaction {
         }
         return true;
     }
+    pub fn parse(record: StringRecord) -> Result<Transaction, String> {
+
+        if record.len() < 3 {
+            return Err("unable to parse row".into());
+        }
+
+        let client = match record[1].trim().parse::<u16>() {
+            Ok(id) => id,
+            Err(_) => return Err("unable to parse client".into()),
+        };
+
+        // TODO: What if transaction type is invalid
+        let transaction_type = match TransactionType::parse(&record[0]){
+            Ok(t) => t,
+            Err(_) => return Err("unable to parse transaction type".into())
+        };
+
+        let tx = match record[2].trim().parse::<u32>() {
+            Ok(id) => id,
+            Err(_) => return Err("Unable to parse transaction".into())
+        };
+
+        let tx = Transaction {
+            transaction_type,
+            client,
+            tx,
+            amount: match record.len() {
+                4 => parse_amount(record[3].trim()),
+                _ => None,
+            },
+            disputed: false,
+        };
+        Ok(tx)
+    }
 }
 
 #[cfg(test)]
@@ -82,14 +117,14 @@ mod tests {
 
     #[test]
     fn should_parse_valid_transaction_type() {
-        let tx_type = TransactionType::from("deposit");
-        assert!(matches!(tx_type, TransactionType::Deposit));
+        let tx_type = TransactionType::parse("deposit");
+        assert!(matches!(tx_type.ok().unwrap(), TransactionType::Deposit));
     }
 
     #[test]
-    #[should_panic]
-    fn should_panic_if_invalid_transaction_type() {
-        let _tx_type = TransactionType::from("does_not_exist");
+    fn should_return_err_if_invalid_transaction_type() {
+        let tx_type = TransactionType::parse("does_not_exist");
+        assert!(tx_type.is_err());
     }
 
     #[test]

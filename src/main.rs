@@ -20,9 +20,16 @@ fn main() {
 
     for result in reader.records() {
         let record = result.unwrap();
-        let transaction = Transaction::from(record);
-        if transaction.is_valid() {
-            processor.process_transaction(transaction);
+        match Transaction::parse(record) {
+            Ok(transaction) => {
+                if transaction.is_valid() {
+                    processor.process_transaction(transaction);
+                }
+            }
+            Err(_) => {
+                // println!("Ignoring: {:?}", record);
+                // ignore the invalid transaction
+            }
         }
     }
     println!("client, available, held, total, locked");

@@ -164,6 +164,40 @@ client, available, held, total, locked
 12000, 275.0000, 0.0000, 275.0000, true
 ```
 
+#### Invalid references (client_id: `13000`)
+Testing for scenarios where a withdrawal and chargeback are 
+referencing a different client_id
+```
+type, client, tx, amount
+deposit, 13000, 13001, 150.0
+deposit, 13000, 13002, 150.0
+deposit, 13000, 13003, 150.0
+deposit, 13000, 13004, 150.0
+withdrawal, 13000, 12005, 175.0
+dispute, 13000, 13001
+chargeback, 13000, 12001
+```
+```
+client, available, held, total, locked
+13000, 275.0000, 150.0000, 425.0000, false
+```
+
+#### Invalid rows 
+```
+chargeback, , , 
+unknown, , , 
+unknown
+deposit, fjefahaefhm3490, 232, 31434
+deposit, 3, fjefahaefhm3490, 31434
+deposit, 3, 44, fjefahaefhm3490
+resolve, 10000, 10001,,, ## should parse a transaction but ignore the rest of the columns
+```
+```
+Expect invalid rows to be ignored.
+```
+
+
+
 ### Live Coding:
 
 Follow up on CSV parsing - 

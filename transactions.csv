@@ -58,3 +58,9 @@ withdrawal, 13000, 12005, 175.0
 dispute, 13000, 13001
 chargeback, 13000, 12001
 
+chargeback, , , 
+unknown, , , 
+unknown
+deposit, fjefahaefhm3490, 232, 31434
+deposit, 3, fjefahaefhm3490, 31434
+deposit, 3, 44, fjefahaefhm3490
