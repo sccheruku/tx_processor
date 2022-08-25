@@ -166,6 +166,9 @@ client, available, held, total, locked
 
 ### Live Coding:
 
+Follow up on CSV parsing - 
+[![Summary](https://img.youtube.com/vi/jCyX7H9n-D8/0.jpg)](https://youtu.be/jCyX7H9n-D8)
+
 Summary - 
 
 [![Summary](https://img.youtube.com/vi/Nbcr16ksZIQ/0.jpg)](https://www.youtube.com/watch?v=Nbcr16ksZIQ)

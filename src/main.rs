@@ -21,7 +21,9 @@ fn main() {
     for result in reader.records() {
         let record = result.unwrap();
         let transaction = Transaction::from(record);
-        processor.process_transaction(transaction);
+        if transaction.is_valid() {
+            processor.process_transaction(transaction);
+        }
     }
     println!("client, available, held, total, locked");
     for account in processor.get_account_states() {
