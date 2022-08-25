@@ -200,22 +200,14 @@ Expect invalid rows to be ignored.
 
 ### Live Coding:
 
-Follow up on CSV parsing - 
+[Follow up on CSV Parsing](https://youtu.be/jCyX7H9n-D8)
 
-[![Summary](https://img.youtube.com/vi/jCyX7H9n-D8/0.jpg)](https://youtu.be/jCyX7H9n-D8)
+[Follow up on CSV Parsing - 2](https://youtu.be/_Aa2-gAO80A)
 
-Summary - 
+[Summary](https://www.youtube.com/watch?v=Nbcr16ksZIQ)
 
-[![Summary](https://img.youtube.com/vi/Nbcr16ksZIQ/0.jpg)](https://www.youtube.com/watch?v=Nbcr16ksZIQ)
+[Part 1 - 2hr](https://www.youtube.com/watch?v=usyCPOEJPBw)
 
-Part 1 - 2hr
+[Part 2 - 1hr](https://www.youtube.com/watch?v=3RdQv2xx7uw)
 
-[![Part 1](https://img.youtube.com/vi/usyCPOEJPBw/0.jpg)](https://www.youtube.com/watch?v=usyCPOEJPBw)
-
-Part 2 - 1hr
-
-[![Part 2](https://img.youtube.com/vi/3RdQv2xx7uw/0.jpg)](https://www.youtube.com/watch?v=3RdQv2xx7uw)
-
-Part 3 - 20m
-
-[![Part 3](https://img.youtube.com/vi/QbOrlniaZKM/0.jpg)](https://www.youtube.com/watch?v=QbOrlniaZKM)
+[Part 3 - 20m](https://www.youtube.com/watch?v=QbOrlniaZKM)
